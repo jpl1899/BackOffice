@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+bun.lock
+
+# Next.js
+.next/
+out/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Supabase local
+supabase/.branches
+supabase/.temp
+
+# Misc
+.DS_Store
+*.log
