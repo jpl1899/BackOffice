@@ -1,0 +1,17 @@
+# Project configuration consumed by AI agents (Claude, Cursor, Gemini, Codex, etc.)
+# when they encounter {{VAR_NAME}} references in prompts and docs.
+# Minimal subset needed by the `product-management` skill methodology
+# ({{PROJECT_KEY}}, {{ISSUE_TRACKER}}, {{ATLASSIAN_URL}}). BackOffice does not
+# ship the rest of the agentic-dev skill infrastructure (.claude/skills/), so
+# sections unused here (git_strategy, environments, external_consumers) are
+# intentionally omitted rather than fabricated.
+
+project:
+  project_name: BackOffice
+  project_key: BAC
+  webapp_domain: null # no domain of its own — lives under tuDeclaracion's infra
+
+issue_tracker:
+  issue_tracker: Jira
+  issue_tracker_cli: acli
+  atlassian_url: https://lk-tudeclaracion.atlassian.net

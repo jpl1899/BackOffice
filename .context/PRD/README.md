@@ -12,4 +12,4 @@ Salida de la Fase 2 (lado producto) de `/project-foundation`. Convierte la Const
 
 ## Estado actual
 
-Todavía no separado. El contenido vive en `../Project Foundation.md` § Scope (MVP1) y § Non-goals.
+Separado desde `../Project Foundation.md` § Scope (MVP1) y § Non-goals. Ver `mvp-scope.md`, `user-personas.md`, `future-roadmap.md`.

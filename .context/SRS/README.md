@@ -11,7 +11,7 @@ Salida de la Fase 2 (lado técnico) de `/project-foundation`. Convierte el PRD e
 
 ## Estado actual
 
-Todavía no separado. El contenido vive en `../Project Foundation.md` § Architecture y § Testing.
+Separado desde `../Project Foundation.md` § Architecture y § Testing. Ver `architecture.md`, `non-functional.md`.
 
 ## Notas
 
