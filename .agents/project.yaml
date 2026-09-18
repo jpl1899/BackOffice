@@ -37,5 +37,5 @@ git_strategy:
 # Per-environment config, populated as environments come online.
 environments:
   staging:
-    web_url: null # set once Render assigns the *.onrender.com URL (see render.yaml)
+    web_url: https://backoffice-1-za5e.onrender.com
     db_project_ref: kqrleobwemscldkfissh # same Supabase project as tuDeclaracion — no separate staging DB
