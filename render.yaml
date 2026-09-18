@@ -1,0 +1,20 @@
+# Render Blueprint — see .agents/project.yaml (git_strategy, environments.staging).
+# Import via Render dashboard: "New" -> "Blueprint" -> pick this repo.
+# Native `node` runtime auto-detects Bun from bun.lock, no Docker needed.
+services:
+  - type: web
+    name: backoffice-staging
+    runtime: node
+    plan: free
+    branch: staging
+    buildCommand: bun install && bun run build
+    startCommand: bun run start
+    envVars:
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false

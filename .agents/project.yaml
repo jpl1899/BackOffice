@@ -1,10 +1,10 @@
 # Project configuration consumed by AI agents (Claude, Cursor, Gemini, Codex, etc.)
 # when they encounter {{VAR_NAME}} references in prompts and docs.
-# Minimal subset needed by the `product-management` skill methodology
-# ({{PROJECT_KEY}}, {{ISSUE_TRACKER}}, {{ATLASSIAN_URL}}). BackOffice does not
-# ship the rest of the agentic-dev skill infrastructure (.claude/skills/), so
-# sections unused here (git_strategy, environments, external_consumers) are
-# intentionally omitted rather than fabricated.
+# Minimal subset needed by the `product-management` / `sprint-development`
+# skill methodology. BackOffice does not ship the rest of the agentic-dev
+# skill infrastructure (.claude/skills/), so sections still unused here
+# (jira-required.yaml, environments per-env URLs) are intentionally omitted
+# rather than fabricated.
 
 project:
   project_name: BackOffice
@@ -15,3 +15,27 @@ issue_tracker:
   issue_tracker: Jira
   issue_tracker_cli: acli
   atlassian_url: https://lk-tudeclaracion.atlassian.net
+
+# Git workflow for this project. Mirrors tuDeclaracion's main-integration
+# strategy (see that repo's .agents/project.yaml for the fuller schema this
+# is trimmed from).
+git_strategy:
+  strategy: main-integration
+  description: >
+    main (production) + staging (integration). Work is committed to main and
+    promoted to staging as an integration/pre-release checkpoint (matches the
+    Render staging deploy in environments.staging). Feature branches PR into
+    staging; staging promotes to main after QA signs off.
+  branches:
+    production: main
+    integration: staging
+  protected: [main, staging]
+  branch_prefixes:
+    precedence: [feat, fix, refactor, test, docs, chore]
+    naming_with_key: '{prefix}/{ISSUE-KEY}-{kebab-slug}'
+
+# Per-environment config, populated as environments come online.
+environments:
+  staging:
+    web_url: null # set once Render assigns the *.onrender.com URL (see render.yaml)
+    db_project_ref: kqrleobwemscldkfissh # same Supabase project as tuDeclaracion — no separate staging DB
